@@ -61,6 +61,7 @@
     <Analyzer Include="C:\Program Files\Unity\Hub\Editor\6000.1.7f1\Editor\Data\Tools\Unity.SourceGenerators\Unity.UIToolkit.SourceGenerator.dll" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Scripts\Grimore\SpellTooltip.cs" />
     <Compile Include="Assets\Scripts\Grimore\GrimoireManager.cs" />
     <Compile Include="Assets\Scripts\BattleManager.cs" />
     <Compile Include="Assets\Scripts\SpellBase.cs" />
@@ -70,6 +71,8 @@
     <Compile Include="Assets\Scripts\Grimore\GrimoireUIController.cs" />
     <Compile Include="Assets\Scripts\StatusBatalha.cs" />
     <Compile Include="Assets\Scripts\OpenClosePanel.cs" />
+    <Compile Include="Assets\Scripts\Battle\BattleSpellSlot.cs" />
+    <Compile Include="Assets\Scripts\PlayersSlotManager.cs" />
     <Compile Include="Assets\Scripts\TextoDano.cs" />
   </ItemGroup>
   <ItemGroup>

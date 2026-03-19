@@ -23,12 +23,16 @@ public class SpellBase : ScriptableObject
 
     // --- Getters ---
     public string SpellName => spellName;
+
+    public string Description => description;
     public Sprite Icon => icon;
     public bool IsPassive => isPassive;
     public string TargetTag => targetTag;
     public GameObject VfxPrefab => vfxPrefab;
     public int ManaCost => manaCost;
     public int MaxTargets => maxTargets;
+
+    public int Level => level;
     public bool IsHealing => isHealing;
 
     public float GetCurrentPower() => basePower + (level * 2.5f); // Ajustei o scaling ;)

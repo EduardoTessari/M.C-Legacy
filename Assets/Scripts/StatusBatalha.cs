@@ -13,15 +13,20 @@ public class StatusBatalha : MonoBehaviour
     // --- NOVAS VARIÁVEIS PARA A COR ---
     private SpriteRenderer sr;
     private Color corOriginal;
+    private bool _corFoiSalva = false; // Nossa trava de segurança
 
     [Header("UI")]
     public Image barraHPVerde; // Arraste a imagem que tem o "Filled" aqui
 
+    void Awake()
+    {
+        // Tentamos salvar a cor logo no nascimento (Awake é o primeiro de tudo)
+        SalvarCorOriginal();
+    }
+
     void Start()
     {
-        sr = GetComponent<SpriteRenderer>();
-        corOriginal = sr.color; // Salva a cor que você definiu na Unity
-
+        // Garantimos que a barra de HP comece certa
         if (barraHPVerde != null)
         {
             barraHPVerde.fillAmount = hpAtual / hpMaximo;
@@ -29,32 +34,53 @@ public class StatusBatalha : MonoBehaviour
     }
 
     // --- LÓGICA DE SELEÇÃO (MOUSE) ---
+
+    private void SalvarCorOriginal()
+    {
+        if (_corFoiSalva) return; // Se já salvamos, não faz nada
+
+        if (sr == null) sr = GetComponent<SpriteRenderer>();
+
+        if (sr != null)
+        {
+            Color c = sr.color;
+            c.a = 1f; // Garante que não é transparente
+            sr.color = c;
+            corOriginal = c; // Salva a cor REAL do prefab
+            _corFoiSalva = true;
+        }
+    }
+
+    public void DefinirDestaque(bool status, Color corDestaque)
+    {
+        // Caso alguém chame esse método antes do Awake/Start rodar:
+        SalvarCorOriginal();
+
+        sr.color = status ? corDestaque : corOriginal;
+    }
     private void OnMouseEnter()
     {
-        // Só brilha se for a vez do player (acessando o seu BattleManager)
-        // Se o seu script de batalha se chamar outro nome, ajuste o "BattleManager"
-        if (BattleManager.instance != null && BattleManager.instance.minhaVez)
+        // Só brilha em Ciano se for a vez do player escolher alvo
+        if (BattleManager.instance.minhaVez && BattleManager.instance.selecionandoAlvo)
         {
-            sr.color = Color.cyan; // Cor de "estou te escolhendo"
+            sr.color = Color.cyan;
         }
     }
 
     private void OnMouseExit()
     {
-        // Se não for o turno deste personagem, volta pra cor original
-        // Se for o turno dele, a gente mantém a cor de destaque (ex: Amarelo)
+        // SÓ volta ao normal se eu não for o cara do turno!
         if (BattleManager.instance.turnoAtualPersonagem != gameObject)
         {
             sr.color = corOriginal;
         }
+        else
+        {
+            // Se eu ainda sou o dono do turno, fico amarelo!
+            sr.color = Color.yellow;
+        }
     }
 
-    // --- MÉTODO PARA MUDAR A COR VIA CÓDIGO (TURNO) ---
-    public void DefinirDestaque(bool status, Color corDestaque)
-    {
-        if (sr == null) sr = GetComponent<SpriteRenderer>(); // Garantia extra
-        sr.color = status ? corDestaque : corOriginal;
-    }
 
     public void ReceberDano(float dano)
     {
@@ -72,7 +98,7 @@ public class StatusBatalha : MonoBehaviour
         if (hpAtual <= 0)
         {
             Debug.Log(nomeEntidade + " morreu!");
-            gameObject.SetActive(false);
+            Destroy(gameObject, 0.5f);
         }
 
         BattleManager.instance.VerificarFimDeBatalha(); // Verifica se a batalha acabou após o dano

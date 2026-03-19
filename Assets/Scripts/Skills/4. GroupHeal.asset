@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: 4. GroupHeal
   m_EditorClassIdentifier: 
   spellID: 3
-  spellName: Cura unica
-  description: Use a cura unica para restaurar a vida de um alicado em 100% do seu
+  spellName: Cura Coletiva
+  description: Use a cura coletiva para restaurar a vida dos aliados em 50% do seu
     ataque
   icon: {fileID: -4178046375966092550, guid: 52c888cf293ff8a4285edc6ac3387654, type: 3}
   level: 1
