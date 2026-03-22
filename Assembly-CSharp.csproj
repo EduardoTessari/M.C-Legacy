@@ -63,8 +63,10 @@
   <ItemGroup>
     <Compile Include="Assets\Scripts\Grimore\SpellTooltip.cs" />
     <Compile Include="Assets\Scripts\Grimore\GrimoireManager.cs" />
+    <Compile Include="Assets\Scripts\EnemyAI.cs" />
     <Compile Include="Assets\Scripts\BattleManager.cs" />
     <Compile Include="Assets\Scripts\SpellBase.cs" />
+    <Compile Include="Assets\Scripts\Materials\ItemData.cs" />
     <Compile Include="Assets\Scripts\BattleStarter.cs" />
     <Compile Include="Assets\Scripts\Grimore\GrimoireSlot.cs" />
     <Compile Include="Assets\Scripts\Habilidade.cs" />

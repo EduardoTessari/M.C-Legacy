@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 9209342741116397463}
   - component: {fileID: 3298814229841733219}
   - component: {fileID: 7150518715238940941}
+  - component: {fileID: 9017661827090581452}
   m_Layer: 0
   m_Name: Inimigo 1
   m_TagString: Enemy
@@ -154,6 +155,21 @@ MonoBehaviour:
   prefabTextoDano: {fileID: 5872726020378046024, guid: e2d69048168955140a2065982dc89f31, type: 3}
   pontoDeSpawn: {fileID: 3716583448530237309}
   barraHPVerde: {fileID: 7210258288583101753}
+--- !u!114 &9017661827090581452
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3547550853801671210}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 87476387e9a5bf246a430d6f0fbe8f00, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _spells:
+  - {fileID: 11400000, guid: a5d786d7919d7fe4aaf56b399fde388c, type: 2}
+  - {fileID: 11400000, guid: 9d6082f906e91074f84c030d61da3ac4, type: 2}
 --- !u!1001 &8216536268882728562
 PrefabInstance:
   m_ObjectHideFlags: 0

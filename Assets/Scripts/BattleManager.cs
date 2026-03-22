@@ -1,6 +1,5 @@
 using System.Collections;
 using System.Collections.Generic;
-using System.Security.Cryptography;
 using TMPro;
 using UnityEngine;
 
@@ -33,7 +32,7 @@ public class BattleManager : MonoBehaviour
     {
         if (instance == null) instance = this;
         else Destroy(gameObject);
-        
+
     }
 
     void Update()
@@ -189,12 +188,48 @@ public class BattleManager : MonoBehaviour
         isBusy = true;
         yield return new WaitForSeconds(1.0f);
 
-        GameObject[] players = GameObject.FindGameObjectsWithTag("Player");
-        if (players.Length > 0)
+        EnemyAI ai = turnoAtualPersonagem.GetComponent<EnemyAI>();
+
+        if (ai != null)
         {
-            int rand = Random.Range(0, players.Length);
-            players[rand].GetComponent<StatusBatalha>().ReceberDano(35);
-            Debug.Log($"IA {turnoAtualPersonagem.name} atacou {players[rand].name}");
+            selectedSpell = ai.ChooseAction();
+
+            if (selectedSpell != null)
+            {
+                // 1. COMEÇA COM A TAG QUE ESTÁ NO ASSET
+                string tagParaBuscar = selectedSpell.TargetTag;
+
+                // 2. LÓGICA DE ESPELHAMENTO: "O inimigo do meu inimigo é meu alvo"
+                // Se o conjurador é um Inimigo, a gente inverte as intenções:
+                if (turnoAtualPersonagem.CompareTag("Enemy"))
+                {
+                    if (selectedSpell.TargetTag == "Enemy")
+                        tagParaBuscar = "Player"; // Ataques agora focam em você
+                    else if (selectedSpell.TargetTag == "Player")
+                        tagParaBuscar = "Enemy"; // Curas agora focam nele mesmo
+                }
+
+                List<GameObject> alvosFinais = new List<GameObject>();
+
+                // 3. BUSCA COM A TAG "TRADUZIDA"
+                foreach (GameObject combatente in combatentes)
+                {
+                    if (alvosFinais.Count >= selectedSpell.MaxTargets) break;
+
+                    if (combatente != null && combatente.CompareTag(tagParaBuscar))
+                    {
+                        alvosFinais.Add(combatente);
+                    }
+                }
+
+                yield return StartCoroutine(ExecutarAçãoPlayer(alvosFinais));
+            }
+            else
+            {
+                // Opcional: Aqui é onde o Inimigo já fez o "Ataque Básico" lá na EnemyAI
+                // Você pode colocar um pequeno delay aqui para o jogador ver o dano subir
+                yield return new WaitForSeconds(0.5f);
+            }
         }
 
         yield return new WaitForSeconds(1.0f);
@@ -276,8 +311,8 @@ public class BattleManager : MonoBehaviour
         if (battleCanvas != null) battleCanvas.SetActive(false);
         if (mainCanvas != null) mainCanvas.SetActive(true);
         if (combatEnvironment != null) combatEnvironment.SetActive(false);
-        if (worldEnvironment != null) 
-        { 
+        if (worldEnvironment != null)
+        {
             worldEnvironment.SetActive(true);
             npcThatCalled.ResetNPC();
 

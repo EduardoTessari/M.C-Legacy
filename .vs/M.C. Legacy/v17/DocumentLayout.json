@@ -3,12 +3,32 @@
   "WorkspaceRootPath": "C:\\Users\\tessa\\Documents\\Unity\\M.C. Legacy\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{A4E1A1B5-6FA5-F2E9-9CA3-CA8A26238F9B}|Assembly-CSharp.csproj|c:\\users\\tessa\\documents\\unity\\m.c. legacy\\assets\\scripts\\materials\\itemdata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A4E1A1B5-6FA5-F2E9-9CA3-CA8A26238F9B}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\materials\\itemdata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A4E1A1B5-6FA5-F2E9-9CA3-CA8A26238F9B}|Assembly-CSharp.csproj|c:\\users\\tessa\\documents\\unity\\m.c. legacy\\assets\\scripts\\spellbase.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A4E1A1B5-6FA5-F2E9-9CA3-CA8A26238F9B}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\spellbase.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{A4E1A1B5-6FA5-F2E9-9CA3-CA8A26238F9B}|Assembly-CSharp.csproj|C:\\Users\\tessa\\Documents\\Unity\\M.C. Legacy\\assets\\scripts\\battlemanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{A4E1A1B5-6FA5-F2E9-9CA3-CA8A26238F9B}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\battlemanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A4E1A1B5-6FA5-F2E9-9CA3-CA8A26238F9B}|Assembly-CSharp.csproj|c:\\users\\tessa\\documents\\unity\\m.c. legacy\\assets\\scripts\\statusbatalha.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{A4E1A1B5-6FA5-F2E9-9CA3-CA8A26238F9B}|Assembly-CSharp.csproj|C:\\Users\\tessa\\Documents\\Unity\\M.C. Legacy\\assets\\scripts\\statusbatalha.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{A4E1A1B5-6FA5-F2E9-9CA3-CA8A26238F9B}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\statusbatalha.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A4E1A1B5-6FA5-F2E9-9CA3-CA8A26238F9B}|Assembly-CSharp.csproj|C:\\Users\\tessa\\Documents\\Unity\\M.C. Legacy\\assets\\scripts\\enemyai.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A4E1A1B5-6FA5-F2E9-9CA3-CA8A26238F9B}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\enemyai.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A4E1A1B5-6FA5-F2E9-9CA3-CA8A26238F9B}|Assembly-CSharp.csproj|C:\\Users\\tessa\\Documents\\Unity\\M.C. Legacy\\assets\\scripts\\grimore\\grimoireslot.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A4E1A1B5-6FA5-F2E9-9CA3-CA8A26238F9B}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\grimore\\grimoireslot.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A4E1A1B5-6FA5-F2E9-9CA3-CA8A26238F9B}|Assembly-CSharp.csproj|C:\\Users\\tessa\\Documents\\Unity\\M.C. Legacy\\assets\\scripts\\grimore\\spelltooltip.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A4E1A1B5-6FA5-F2E9-9CA3-CA8A26238F9B}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\grimore\\spelltooltip.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{A4E1A1B5-6FA5-F2E9-9CA3-CA8A26238F9B}|Assembly-CSharp.csproj|C:\\Users\\tessa\\Documents\\Unity\\M.C. Legacy\\assets\\scripts\\battlestarter.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -19,16 +39,8 @@
       "RelativeMoniker": "D:0:0:{A4E1A1B5-6FA5-F2E9-9CA3-CA8A26238F9B}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\playersslotmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A4E1A1B5-6FA5-F2E9-9CA3-CA8A26238F9B}|Assembly-CSharp.csproj|C:\\Users\\tessa\\Documents\\Unity\\M.C. Legacy\\assets\\scripts\\grimore\\grimoireslot.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A4E1A1B5-6FA5-F2E9-9CA3-CA8A26238F9B}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\grimore\\grimoireslot.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{A4E1A1B5-6FA5-F2E9-9CA3-CA8A26238F9B}|Assembly-CSharp.csproj|C:\\Users\\tessa\\Documents\\Unity\\M.C. Legacy\\assets\\scripts\\battle\\battlespellslot.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{A4E1A1B5-6FA5-F2E9-9CA3-CA8A26238F9B}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\battle\\battlespellslot.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A4E1A1B5-6FA5-F2E9-9CA3-CA8A26238F9B}|Assembly-CSharp.csproj|C:\\Users\\tessa\\Documents\\Unity\\M.C. Legacy\\assets\\scripts\\grimore\\spelltooltip.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A4E1A1B5-6FA5-F2E9-9CA3-CA8A26238F9B}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\grimore\\spelltooltip.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -43,19 +55,56 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
+              "Title": "ItemData.cs",
+              "DocumentMoniker": "C:\\Users\\tessa\\Documents\\Unity\\M.C. Legacy\\Assets\\Scripts\\Materials\\ItemData.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\Materials\\ItemData.cs",
+              "ToolTip": "C:\\Users\\tessa\\Documents\\Unity\\M.C. Legacy\\Assets\\Scripts\\Materials\\ItemData.cs",
+              "RelativeToolTip": "Assets\\Scripts\\Materials\\ItemData.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABMAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-22T19:56:22.528Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "SpellBase.cs",
+              "DocumentMoniker": "C:\\Users\\tessa\\Documents\\Unity\\M.C. Legacy\\Assets\\Scripts\\SpellBase.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\SpellBase.cs",
+              "ToolTip": "C:\\Users\\tessa\\Documents\\Unity\\M.C. Legacy\\Assets\\Scripts\\SpellBase.cs",
+              "RelativeToolTip": "Assets\\Scripts\\SpellBase.cs",
+              "ViewState": "AgIAABEAAAAAAAAAAAAAwBcAAAAWAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-22T19:05:29.646Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "EnemyAI.cs",
+              "DocumentMoniker": "C:\\Users\\tessa\\Documents\\Unity\\M.C. Legacy\\Assets\\Scripts\\EnemyAI.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\EnemyAI.cs",
+              "ToolTip": "C:\\Users\\tessa\\Documents\\Unity\\M.C. Legacy\\Assets\\Scripts\\EnemyAI.cs",
+              "RelativeToolTip": "Assets\\Scripts\\EnemyAI.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-22T18:06:23.913Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
               "Title": "BattleManager.cs",
               "DocumentMoniker": "C:\\Users\\tessa\\Documents\\Unity\\M.C. Legacy\\Assets\\Scripts\\BattleManager.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\BattleManager.cs",
               "ToolTip": "C:\\Users\\tessa\\Documents\\Unity\\M.C. Legacy\\Assets\\Scripts\\BattleManager.cs",
               "RelativeToolTip": "Assets\\Scripts\\BattleManager.cs",
-              "ViewState": "AgIAAJEAAAAAAAAAAAAUwKkAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAMEAAAAAAAAAAADgv9UAAAAxAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-19T18:41:06.807Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-03-19T18:41:06.807Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 8,
               "Title": "PlayersSlotManager.cs",
               "DocumentMoniker": "C:\\Users\\tessa\\Documents\\Unity\\M.C. Legacy\\Assets\\Scripts\\PlayersSlotManager.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\PlayersSlotManager.cs",
@@ -67,13 +116,13 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 5,
               "Title": "GrimoireSlot.cs",
               "DocumentMoniker": "C:\\Users\\tessa\\Documents\\Unity\\M.C. Legacy\\Assets\\Scripts\\Grimore\\GrimoireSlot.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\Grimore\\GrimoireSlot.cs",
               "ToolTip": "C:\\Users\\tessa\\Documents\\Unity\\M.C. Legacy\\Assets\\Scripts\\Grimore\\GrimoireSlot.cs",
               "RelativeToolTip": "Assets\\Scripts\\Grimore\\GrimoireSlot.cs",
-              "ViewState": "AgIAAAUAAAAAAAAAAAAAwBMAAABGAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABMAAABGAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-03-18T19:59:20.081Z"
             },
@@ -91,7 +140,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 7,
               "Title": "BattleStarter.cs",
               "DocumentMoniker": "C:\\Users\\tessa\\Documents\\Unity\\M.C. Legacy\\Assets\\Scripts\\BattleStarter.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\BattleStarter.cs",
@@ -103,7 +152,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 9,
               "Title": "BattleSpellSlot.cs",
               "DocumentMoniker": "C:\\Users\\tessa\\Documents\\Unity\\M.C. Legacy\\Assets\\Scripts\\Battle\\BattleSpellSlot.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\Battle\\BattleSpellSlot.cs",
@@ -115,16 +164,15 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 3,
               "Title": "StatusBatalha.cs",
               "DocumentMoniker": "C:\\Users\\tessa\\Documents\\Unity\\M.C. Legacy\\Assets\\Scripts\\StatusBatalha.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\StatusBatalha.cs",
               "ToolTip": "C:\\Users\\tessa\\Documents\\Unity\\M.C. Legacy\\Assets\\Scripts\\StatusBatalha.cs",
               "RelativeToolTip": "Assets\\Scripts\\StatusBatalha.cs",
-              "ViewState": "AgIAAFQAAAAAAAAAAAAxwGgAAAAFAAAAAAAAAA==",
+              "ViewState": "AgIAAGYAAAAAAAAAAAAqwIAAAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-02-22T19:23:02.033Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-02-22T19:23:02.033Z"
             }
           ]
         }
