@@ -61,21 +61,27 @@
     <Analyzer Include="C:\Program Files\Unity\Hub\Editor\6000.1.7f1\Editor\Data\Tools\Unity.SourceGenerators\Unity.UIToolkit.SourceGenerator.dll" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Scripts\Grimore\Habilidade.cs" />
+    <Compile Include="Assets\Scripts\EquipamentData.cs" />
     <Compile Include="Assets\Scripts\Grimore\SpellTooltip.cs" />
+    <Compile Include="Assets\Scripts\Grimore\SpellBase.cs" />
     <Compile Include="Assets\Scripts\Grimore\GrimoireManager.cs" />
-    <Compile Include="Assets\Scripts\EnemyAI.cs" />
-    <Compile Include="Assets\Scripts\BattleManager.cs" />
-    <Compile Include="Assets\Scripts\SpellBase.cs" />
+    <Compile Include="Assets\Scripts\Inventory\InventoryUI.cs" />
+    <Compile Include="Assets\Scripts\Battle\EnemyAI.cs" />
     <Compile Include="Assets\Scripts\Materials\ItemData.cs" />
-    <Compile Include="Assets\Scripts\BattleStarter.cs" />
+    <Compile Include="Assets\Scripts\ItemTooltip.cs" />
+    <Compile Include="Assets\Scripts\CollectItem.cs" />
     <Compile Include="Assets\Scripts\Grimore\GrimoireSlot.cs" />
-    <Compile Include="Assets\Scripts\Habilidade.cs" />
+    <Compile Include="Assets\Scripts\Battle\StatusBatalha.cs" />
+    <Compile Include="Assets\Scripts\Battle\TextoDano.cs" />
+    <Compile Include="Assets\Scripts\Battle\BattleStarter.cs" />
+    <Compile Include="Assets\Scripts\Battle\PlayersSlotManager.cs" />
+    <Compile Include="Assets\Scripts\Inventory\InventorySlotUI.cs" />
+    <Compile Include="Assets\Scripts\InventoryManager.cs" />
+    <Compile Include="Assets\Scripts\Battle\BattleManager.cs" />
     <Compile Include="Assets\Scripts\Grimore\GrimoireUIController.cs" />
-    <Compile Include="Assets\Scripts\StatusBatalha.cs" />
     <Compile Include="Assets\Scripts\OpenClosePanel.cs" />
     <Compile Include="Assets\Scripts\Battle\BattleSpellSlot.cs" />
-    <Compile Include="Assets\Scripts\PlayersSlotManager.cs" />
-    <Compile Include="Assets\Scripts\TextoDano.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />

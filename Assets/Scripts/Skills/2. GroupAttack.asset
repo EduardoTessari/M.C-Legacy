@@ -20,8 +20,8 @@ MonoBehaviour:
   level: 1
   isPassive: 0
   manaCost: 0
-  maxTargets: 4
-  basePower: 110
+  maxTargets: 5
+  basePower: 50
   isHealing: 0
   vfxPrefab: {fileID: 0}
   targetTag: Enemy

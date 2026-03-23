@@ -16,4 +16,6 @@ public class ItemData : ScriptableObject
     public string ItemName => itemName;
     public string Description => description;
     public Sprite Icon => icon;
+
+    public bool IsStackable => isStackable;
 }

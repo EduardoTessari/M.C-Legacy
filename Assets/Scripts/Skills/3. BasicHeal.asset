@@ -21,7 +21,7 @@ MonoBehaviour:
   isPassive: 0
   manaCost: 0
   maxTargets: 1
-  basePower: 25
+  basePower: 45
   isHealing: 1
   vfxPrefab: {fileID: 0}
   targetTag: Player
