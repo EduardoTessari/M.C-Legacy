@@ -11,10 +11,11 @@ GameObject:
   - component: {fileID: 842293741929447795}
   - component: {fileID: 728937197575058964}
   - component: {fileID: 7877511511342213371}
+  - component: {fileID: -6757091384191195494}
   - component: {fileID: 5149272241806499165}
-  - component: {fileID: 7255329360718379214}
+  - component: {fileID: 358733127020377779}
   m_Layer: 5
-  m_Name: InventorySlot
+  m_Name: CraftSlot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -79,6 +80,19 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &-6757091384191195494
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2501610201602379445}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 161943f7d6cdd56429752d693936f114, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _iconImage: {fileID: 5022863217686437159}
 --- !u!114 &5149272241806499165
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -123,9 +137,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 7255329360718379214}
-        m_TargetAssemblyTypeName: InventorySlotUI, Assembly-CSharp
-        m_MethodName: OnSlotClick
+      - m_Target: {fileID: -6757091384191195494}
+        m_TargetAssemblyTypeName: GrimoireSlot, Assembly-CSharp
+        m_MethodName: OnClickSlot
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -135,7 +149,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &7255329360718379214
+--- !u!114 &358733127020377779
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -144,11 +158,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 2501610201602379445}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9b337bebcd15c2f40a75c0a5cf6f0ea0, type: 3}
+  m_Script: {fileID: 11500000, guid: 1d954ca2060358543a7af64121e71ea2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  iconImage: {fileID: 5022863217686437159}
-  quantityText: {fileID: 3283297080762558174}
+  _itemIcon: {fileID: 5022863217686437159}
+  _itemAmountText: {fileID: 3283297080762558174}
 --- !u!1 &5411358448859519624
 GameObject:
   m_ObjectHideFlags: 0

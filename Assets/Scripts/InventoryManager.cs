@@ -66,7 +66,29 @@ public class InventoryManager : MonoBehaviour
             InventoryUI.instance.UpdateUI();
         }
 
+    }
 
+    public void RemoveItem(ItemData itemToRemove, int amount)
+    {
+        // Usamos o 'for' clássico para poder remover o slot da lista em segurança
+        for (int i = 0; i < inventory.Count; i++)
+        {
+            if (inventory[i].item == itemToRemove)
+            {
+                // 1. Subtrai a quantidade gasta no craft
+                inventory[i].quantity -= amount;
 
+                // 2. Se a quantidade zerou, o item sumiu da mochila! Apaga o slot.
+                if (inventory[i].quantity <= 0)
+                {
+                    inventory.RemoveAt(i);
+                }
+
+                // 3. Avisa a UI para atualizar a tela (igual no AddItem)
+                if (InventoryUI.instance != null) InventoryUI.instance.UpdateUI();
+
+                return; // Já tirou o que precisava, pode parar a função aqui.
+            }
+        }
     }
 }

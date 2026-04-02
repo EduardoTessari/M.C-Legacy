@@ -46,4 +46,21 @@ public class InventorySlotUI : MonoBehaviour, IPointerEnterHandler, IPointerExit
             ItemTooltip.instance.HideTooltip();
         }
     }
+
+    // A função que o botão vai chamar
+    public void OnSlotClick()
+    {
+        // Se o slot estiver vazio, não faz nada
+        if (currentItem == null) return;
+
+        // O teste de identidade: é equipamento?
+        if (currentItem is EquipmentData equipamento)
+        {
+            EquipmentManager.instance.Equip(equipamento);
+        }
+        else
+        {
+            Debug.Log("O item " + currentItem.name + " não pode ser usado.");
+        }
+    }
 }
