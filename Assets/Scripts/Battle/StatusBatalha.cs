@@ -26,8 +26,24 @@ public class StatusBatalha : MonoBehaviour
 
     void Start()
     {
-        // Garantimos que a barra de HP comece certa
-        if (barraHPVerde != null)
+        CharacterStats stats = GetComponent<CharacterStats>();
+
+        if (stats != null)
+        {
+            stats.UpdateStats();
+            hpMaximo = stats.CurrentHealth;
+            hpAtual = hpMaximo; // Define o valor antes de chamar a UI
+        }
+
+        // Tente rodar a atualização da barra no final do frame ou garantir a chamada
+        AtualizarBarraUI();
+    }
+
+    // Criar um métodozinho só para a barra evita repetir código
+    public void AtualizarBarraUI()
+    {
+
+        if (barraHPVerde != null && hpMaximo > 0)
         {
             barraHPVerde.fillAmount = hpAtual / hpMaximo;
         }
@@ -86,22 +102,32 @@ public class StatusBatalha : MonoBehaviour
     {
         hpAtual -= dano;
 
-        // Configura a barra no início
-        if (barraHPVerde != null)
-        {
-            barraHPVerde.fillAmount = hpAtual / hpMaximo;
-        }
+        // Usamos o método que você criou para evitar o erro de AABB
+        AtualizarBarraUI();
 
         GameObject textoGO = Instantiate(prefabTextoDano, pontoDeSpawn.position, Quaternion.identity, pontoDeSpawn);
         textoGO.GetComponent<TextoDano>().Configurar(dano.ToString());
 
         if (hpAtual <= 0)
         {
-            Debug.Log(nomeEntidade + " morreu!");
-            Destroy(gameObject, 0.5f);
+            Debug.Log(nomeEntidade + " foi derrotado!");
+
+            // CHECAGEM: É o Player ou um Inimigo?
+            if (gameObject.CompareTag("Player"))
+            {
+                // Se for o Player, só desativa para não quebrar o BattleManager
+                gameObject.SetActive(false);
+                Debug.Log("Player inativado na batalha.");
+            }
+            else
+            {
+                // Se for inimigo, pode destruir para limpar a memória
+                Destroy(gameObject, 0.5f);
+            }
         }
 
-        BattleManager.instance.VerificarFimDeBatalha(); // Verifica se a batalha acabou após o dano
+        // Importante: O Verify deve rodar DEPOIS da inativação/destruição
+        BattleManager.instance.VerificarFimDeBatalha();
     }
 
     public void ReceberCura(float quantidade)

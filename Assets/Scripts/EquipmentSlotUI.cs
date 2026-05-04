@@ -1,4 +1,5 @@
 using Unity.VisualScripting;
+using UnityEditor.ShaderGraph.Internal;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -29,5 +30,12 @@ public class EquipmentSlotUI : MonoBehaviour
             itemIcon.sprite = null;
             itemIcon.enabled = false;
         }
+    }
+
+    public void OnClickUnequip()
+    {
+        // Chama o Manager pedindo para desequipar o tipo de item deste slot
+        // Castamos o Enum para int para o Manager saber o índice (ex: Weapon vira 0)
+        EquipmentManager.instance.Unequip((int)mySlotType);
     }
 }

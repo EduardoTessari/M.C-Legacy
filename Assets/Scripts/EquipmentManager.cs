@@ -54,16 +54,51 @@ public class EquipmentManager : MonoBehaviour
 
         Debug.Log("Você equipou: " + newItem.name);
 
-        // O Manager avisa o motor de atributos para recalcular
-        if (playerStats != null)
+        GameObject playerObj = GameObject.FindWithTag("Player");
+        if (playerObj != null)
         {
-            playerStats.UpdateStats();
+            CharacterStats stats = playerObj.GetComponent<CharacterStats>();
+            stats.UpdateStats();
         }
 
         // O Manager passa passando um "rádio" para todos os quadradinhos da UI
         foreach (EquipmentSlotUI slot in uiSlots)
         {
             slot.UpdateSlotUI();
+        }
+    }
+
+    // Método para desequipar baseado no índice do slot (0=Arma, 1=Armadura, etc)
+    public void Unequip(int slotIndex)
+    {
+        // 1. Verifica se existe mesmo algo nesse slot para não dar erro
+        if (currentEquipment[slotIndex] != null)
+        {
+            EquipmentData itemToReturn = currentEquipment[slotIndex];
+
+            // Devolve para a mochila
+            InventoryManager.instance.AddItem(itemToReturn, 1);
+
+            // 2. Esvazia a gaveta (Passa para null)
+            currentEquipment[slotIndex] = null;
+
+            Debug.Log("Você desequipou: " + itemToReturn.name);
+
+            // 3. O Manager avisa o motor de atributos para recalcular
+            // Como o slot agora é null, o foreach do CharacterStats vai somar 0, 
+            // efetivamente subtraindo o bônus!
+            GameObject playerObj = GameObject.FindWithTag("Player");
+            if (playerObj != null)
+            {
+                CharacterStats stats = playerObj.GetComponent<CharacterStats>();
+                stats.UpdateStats();
+            }
+
+            // 4. Avisa a UI para limpar a imagem do slot
+            foreach (EquipmentSlotUI slot in uiSlots)
+            {
+                slot.UpdateSlotUI();
+            }
         }
     }
 }

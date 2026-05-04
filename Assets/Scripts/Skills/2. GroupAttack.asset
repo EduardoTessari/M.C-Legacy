@@ -21,7 +21,7 @@ MonoBehaviour:
   isPassive: 0
   manaCost: 0
   maxTargets: 5
-  basePower: 50
+  multiplicadorDano: 0.5
   isHealing: 0
   vfxPrefab: {fileID: 0}
   targetTag: Enemy

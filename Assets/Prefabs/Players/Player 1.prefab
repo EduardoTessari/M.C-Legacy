@@ -104,8 +104,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nomeEntidade: 
-  hpAtual: 100
-  hpMaximo: 100
+  hpAtual: 0
+  hpMaximo: 0
   prefabTextoDano: {fileID: 5872726020378046024, guid: e2d69048168955140a2065982dc89f31, type: 3}
   pontoDeSpawn: {fileID: 50362582646205241}
   barraHPVerde: {fileID: 6282208953512972669}
@@ -158,7 +158,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _baseAttack: 10
-  _baseDefense: 5
+  _baseHealth: 500
   _baseSpeed: 2
   statusText: []
   statsUI: {fileID: 0}
@@ -296,7 +296,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _baseAttack: 0
-  _baseDefense: 0
+  _baseHealth: 0
   _baseSpeed: 0
   statusText: []
   statsUI: {fileID: 0}

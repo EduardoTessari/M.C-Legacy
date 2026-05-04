@@ -14,7 +14,7 @@ public class SpellBase : ScriptableObject
     [SerializeField] private bool isPassive;
     [SerializeField] private int manaCost;
     [SerializeField] private int maxTargets;
-    [SerializeField] private float basePower;
+    [SerializeField] private float multiplicadorDano;
     [SerializeField] private bool isHealing;
 
     [Header("Visuals & Logic")]
@@ -34,6 +34,7 @@ public class SpellBase : ScriptableObject
 
     public int Level => level;
     public bool IsHealing => isHealing;
+    public float MultiplicadorDano => multiplicadorDano;
 
-    public float GetCurrentPower() => basePower + (level * 2.5f); // Ajustei o scaling ;)
+    public float GetCurrentPower() => multiplicadorDano; // Ajustei o scaling ;)
 }

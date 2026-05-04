@@ -7,6 +7,8 @@ public class BattleManager : MonoBehaviour
 {
     public static BattleManager instance;
 
+    private GameObject playerNoMundo;
+
     [Header("New Spell System")]
     [SerializeField] private SpellBase selectedSpell;
 
@@ -50,6 +52,8 @@ public class BattleManager : MonoBehaviour
         combatentes.Clear();
         combatentes.AddRange(GameObject.FindGameObjectsWithTag("Player"));
         combatentes.AddRange(GameObject.FindGameObjectsWithTag("Enemy"));
+
+        playerNoMundo = combatentes.Find(go => go.CompareTag("Player"));
 
         SetupBattleUI();
         turnoAtual = 0;
@@ -241,11 +245,27 @@ public class BattleManager : MonoBehaviour
         if (selectedSpell.VfxPrefab != null)
             Instantiate(selectedSpell.VfxPrefab, target.transform.position, Quaternion.identity);
 
-        StatusBatalha status = target.GetComponent<StatusBatalha>();
-        if (status != null)
+        // Quem está agindo agora? (Pode ser Player ou Inimigo)
+        CharacterStats statsConjurador = turnoAtualPersonagem.GetComponent<CharacterStats>();
+        StatusBatalha statusAlvo = target.GetComponent<StatusBatalha>();
+
+
+        if (statsConjurador != null && statusAlvo != null)
         {
-            if (selectedSpell.IsHealing) status.ReceberCura(selectedSpell.GetCurrentPower());
-            else status.ReceberDano(selectedSpell.GetCurrentPower());
+            // A conta funciona para ambos! 
+            // Se o Goblin tem 10 de Atk e a clava dele escala 0.5, ele tira 5.
+            float danoCalculado = statsConjurador.CurrentAttack * selectedSpell.MultiplicadorDano;
+            int danoFinal = Mathf.RoundToInt(danoCalculado);
+            {
+                // A FÓRMULA: Ataque Atual (com equipamentos) * Porcentagem da Magia
+
+                if (selectedSpell.IsHealing)
+                    statusAlvo.ReceberCura(danoFinal);
+                else
+                    statusAlvo.ReceberDano(danoFinal);
+
+                Debug.Log($"{turnoAtualPersonagem.name} usou {selectedSpell.SpellName} causando {danoFinal} de dano (Escalonamento: {selectedSpell.MultiplicadorDano * 100}%)");
+            }
         }
     }
 
@@ -305,17 +325,50 @@ public class BattleManager : MonoBehaviour
 
         foreach (GameObject go in combatentes)
         {
-            if (go != null) Destroy(go);
+            if (go != null)
+            {
+                if (!go.CompareTag("Player"))
+                {
+                    Destroy(go);
+                }
+            }
         }
         combatentes.Clear();
+
         if (battleCanvas != null) battleCanvas.SetActive(false);
         if (mainCanvas != null) mainCanvas.SetActive(true);
         if (combatEnvironment != null) combatEnvironment.SetActive(false);
+
         if (worldEnvironment != null)
         {
             worldEnvironment.SetActive(true);
-            npcThatCalled.ResetNPC();
 
+            if (playerNoMundo != null)
+            {
+                playerNoMundo.SetActive(true);
+
+                // 1. Pegamos os dois componentes do Player
+                CharacterStats stats = playerNoMundo.GetComponent<CharacterStats>();
+                StatusBatalha status = playerNoMundo.GetComponent<StatusBatalha>();
+
+                if (stats != null && status != null)
+                {
+                    // 2. Atualiza os limites (HP Máximo baseado nos itens)
+                    stats.UpdateStats();
+
+                    // 3. CURA REAL: Resetamos o HP atual para o máximo
+                    status.hpMaximo = stats.CurrentHealth;
+                    status.hpAtual = status.hpMaximo;
+
+                    // 4. Agora sim, chamamos a atualização da barra do OBJETO 'status'
+                    status.DefinirDestaque(false, Color.white); // Limpa brilho de turno se houver
+
+                    // 5. FORÇA A BARRA DE VIDA A SE RECALCULAR
+                    status.AtualizarBarraUI();
+                }
+            }
+
+            if (npcThatCalled != null) npcThatCalled.ResetNPC();
         }
     }
 

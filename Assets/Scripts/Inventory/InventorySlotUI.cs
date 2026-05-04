@@ -57,6 +57,11 @@ public class InventorySlotUI : MonoBehaviour, IPointerEnterHandler, IPointerExit
         if (currentItem is EquipmentData equipamento)
         {
             EquipmentManager.instance.Equip(equipamento);
+
+            if (ItemTooltip.instance != null)
+            {
+                ItemTooltip.instance.HideTooltip();
+            }
         }
         else
         {
