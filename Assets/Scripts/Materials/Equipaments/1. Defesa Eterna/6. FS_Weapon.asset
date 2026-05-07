@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a886e4e76d294ec4c8ef56a8204759d4, type: 3}
+  m_Name: 6. FS_Weapon
+  m_EditorClassIdentifier: 
+  itemID: 6
+  itemName: Cetro da Furia Sanguinea
+  description: 
+  icon: {fileID: -1635963809266141271, guid: 6e61e8ccc13762349bd746f9bb79f8dd, type: 3}
+  isStackable: 0
+  maxStack: 999
+  equipType: 0
+  equipSet: 1
+  bonusAttack: 100
+  bonusHealth: 0
+  bonusSpeed: 3
+  bonusDefense: 0

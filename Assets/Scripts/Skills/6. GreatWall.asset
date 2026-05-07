@@ -1,0 +1,28 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d5525de0f83c876498aeb55ecc33f543, type: 3}
+  m_Name: 6. GreatWall
+  m_EditorClassIdentifier: 
+  spellID: 6
+  spellName: Grande Muralha
+  description: Aumenta a defesa de um aliado em 50 pontos.
+  icon: {fileID: -1045133410153605164, guid: f150060b48183f2438898204b2ce5a6a, type: 3}
+  level: 1
+  isPassive: 0
+  manaCost: 0
+  maxTargets: 1
+  multiplicadorDano: 0
+  isHealing: 0
+  isStatModifier: 1
+  defenseChange: 50
+  vfxPrefab: {fileID: 0}
+  targetTag: Player

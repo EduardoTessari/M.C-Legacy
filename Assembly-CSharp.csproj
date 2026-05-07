@@ -68,6 +68,7 @@
     <Compile Include="Assets\Scripts\Grimore\GrimoireManager.cs" />
     <Compile Include="Assets\Scripts\Inventory\InventoryUI.cs" />
     <Compile Include="Assets\Scripts\Battle\EnemyAI.cs" />
+    <Compile Include="Assets\Scripts\Managgers\TooltipManager.cs" />
     <Compile Include="Assets\Scripts\ItemTooltip.cs" />
     <Compile Include="Assets\Scripts\CollectItem.cs" />
     <Compile Include="Assets\Scripts\CharacterStats.cs" />
@@ -88,6 +89,7 @@
     <Compile Include="Assets\Scripts\OpenClosePanel.cs" />
     <Compile Include="Assets\Scripts\Materials\Itens\ItemData.cs" />
     <Compile Include="Assets\Scripts\Battle\BattleSpellSlot.cs" />
+    <Compile Include="Assets\Scripts\Managgers\TooltipTrigger.cs" />
     <Compile Include="Assets\Scripts\CraftingManager.cs" />
     <Compile Include="Assets\Scripts\EquipmentManager.cs" />
   </ItemGroup>

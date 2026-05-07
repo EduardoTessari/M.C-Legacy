@@ -52,7 +52,7 @@ public class EquipmentManager : MonoBehaviour
         // Aqui a gente consome o item novo da mochila, já que ele foi pro corpo
         InventoryManager.instance.RemoveItem(newItem, 1);
 
-        Debug.Log("Você equipou: " + newItem.name);
+        Debug.Log("Você equipou: " + newItem.ItemName);
 
         GameObject playerObj = GameObject.FindWithTag("Player");
         if (playerObj != null)

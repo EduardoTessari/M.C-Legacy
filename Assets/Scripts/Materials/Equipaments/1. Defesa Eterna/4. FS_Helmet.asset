@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a886e4e76d294ec4c8ef56a8204759d4, type: 3}
+  m_Name: 4. FS_Helmet
+  m_EditorClassIdentifier: 
+  itemID: 4
+  itemName: Capacete da Furia Sanguinea
+  description: 
+  icon: {fileID: -7675678393957697333, guid: 4c3d87d200466da4bb5bb76cf034415b, type: 3}
+  isStackable: 0
+  maxStack: 999
+  equipType: 2
+  equipSet: 1
+  bonusAttack: 70
+  bonusHealth: 300
+  bonusSpeed: 0
+  bonusDefense: 100

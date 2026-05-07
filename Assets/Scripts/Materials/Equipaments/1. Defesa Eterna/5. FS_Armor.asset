@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a886e4e76d294ec4c8ef56a8204759d4, type: 3}
+  m_Name: 5. FS_Armor
+  m_EditorClassIdentifier: 
+  itemID: 5
+  itemName: Armadura da Furia Sanguinea
+  description: 
+  icon: {fileID: -8712778243190278716, guid: 1c98eb5f170b67741bda2ffb6150e867, type: 3}
+  isStackable: 0
+  maxStack: 999
+  equipType: 1
+  equipSet: 1
+  bonusAttack: 70
+  bonusHealth: 500
+  bonusSpeed: 0
+  bonusDefense: 100

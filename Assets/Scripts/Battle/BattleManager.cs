@@ -245,27 +245,57 @@ public class BattleManager : MonoBehaviour
         if (selectedSpell.VfxPrefab != null)
             Instantiate(selectedSpell.VfxPrefab, target.transform.position, Quaternion.identity);
 
-        // Quem está agindo agora? (Pode ser Player ou Inimigo)
         CharacterStats statsConjurador = turnoAtualPersonagem.GetComponent<CharacterStats>();
-        StatusBatalha statusAlvo = target.GetComponent<StatusBatalha>();
+        CharacterStats statsAlvo = target.GetComponent<CharacterStats>();
+        StatusBatalha statusBatalhaAlvo = target.GetComponent<StatusBatalha>();
 
-
-        if (statsConjurador != null && statusAlvo != null)
+        if (statsConjurador != null && statusBatalhaAlvo != null)
         {
-            // A conta funciona para ambos! 
-            // Se o Goblin tem 10 de Atk e a clava dele escala 0.5, ele tira 5.
-            float danoCalculado = statsConjurador.CurrentAttack * selectedSpell.MultiplicadorDano;
-            int danoFinal = Mathf.RoundToInt(danoCalculado);
+            float resultadoFinal = 0;
+
+            // CASO A: A magia é de alteração de Atributo (Pique Pokémon)
+            if (selectedSpell.IsStatModifier)
             {
-                // A FÓRMULA: Ataque Atual (com equipamentos) * Porcentagem da Magia
-
-                if (selectedSpell.IsHealing)
-                    statusAlvo.ReceberCura(danoFinal);
-                else
-                    statusAlvo.ReceberDano(danoFinal);
-
-                Debug.Log($"{turnoAtualPersonagem.name} usou {selectedSpell.SpellName} causando {danoFinal} de dano (Escalonamento: {selectedSpell.MultiplicadorDano * 100}%)");
+                if (selectedSpell.DefenseChange != 0)
+                {
+                    statsAlvo.AlterarDefesaTemporariamente(selectedSpell.DefenseChange);
+                    // Você pode até colocar um Log específico:
+                    string acao = selectedSpell.DefenseChange > 0 ? "subiu" : "caiu";
+                    Debug.Log($"{target.name} teve sua defesa reduzida/aumentada!");
+                }
+                // Aqui você pode adicionar outros modificadores no futuro (Atk, Speed...)
+                if (selectedSpell.MultiplicadorDano <= 0) return;
             }
+
+            // CASO B: A magia é de Cura ou Dano
+
+            if (selectedSpell.IsHealing)
+            {
+                // CURA: Ignora defesa. É apenas seu Ataque (ou Int) * Multiplicador
+                resultadoFinal = statsConjurador.CurrentAttack * selectedSpell.MultiplicadorDano;
+            }
+            else
+            {
+                // DANO: (Ataque - Defesa) * Multiplicador
+                int defesaAlvo = (statsAlvo != null) ? statsAlvo.CurrentDefense : 0;
+                float poderPenetracao = statsConjurador.CurrentAttack - defesaAlvo;
+
+                // Trava de dano mínimo antes do multiplicador (Pelo menos 1 de "base")
+                if (poderPenetracao < 1) poderPenetracao = 1;
+
+                resultadoFinal = poderPenetracao * selectedSpell.MultiplicadorDano;
+            }
+
+            // Arredonda e garante que o dano final nunca seja menor que 1 (Trava Global)
+            int valorFinal = Mathf.Max(1, Mathf.RoundToInt(resultadoFinal));
+
+            // 3. Aplica o resultado
+            if (selectedSpell.IsHealing)
+                statusBatalhaAlvo.ReceberCura(valorFinal);
+            else
+                statusBatalhaAlvo.ReceberDano(valorFinal);
+
+            Debug.Log($"{turnoAtualPersonagem.name} usou {selectedSpell.SpellName}. Valor Final: {valorFinal} (Defesa do Alvo: {(statsAlvo != null ? statsAlvo.CurrentDefense : 0)})");
         }
     }
 

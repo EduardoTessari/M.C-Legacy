@@ -1,6 +1,6 @@
 using UnityEngine;
-using UnityEngine.UI;
 using UnityEngine.EventSystems; // FUNDAMENTAL para detectar o mouse
+using UnityEngine.UI;
 
 public class BattleSpellSlot : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 {
@@ -21,17 +21,28 @@ public class BattleSpellSlot : MonoBehaviour, IPointerEnterHandler, IPointerExit
     // --- TOOLTIP AQUI ---
     public void OnPointerEnter(PointerEventData eventData)
     {
-        if (_mySpell != null && SpellTooltip.instance != null)
+        if (_mySpell != null)
         {
-            SpellTooltip.instance.ShowTooltip(_mySpell);
+            // Criamos a string de forma dinâmica aqui
+            string header = $"<b>{_mySpell.SpellName}</b>";
+            string level = _mySpell.Level.ToString();
+            string content = _mySpell.Description; // Ou qualquer info extra
+
+            // Se for magia de status, adicionamos a info extra
+            if (_mySpell.IsStatModifier)
+            {
+                string cor = _mySpell.DefenseChange > 0 ? "green" : "red";
+                content += $"\n<color={cor}>Defesa: {_mySpell.DefenseChange}</color>";
+            }
+
+            // Chamamos o Manager único do jogo
+            TooltipManager.instance.Show($"{header}\n<size=80%>{content}</size>");
         }
     }
 
     public void OnPointerExit(PointerEventData eventData)
-    {
-        if (SpellTooltip.instance != null)
-        {
-            SpellTooltip.instance.HideTooltip();
-        }
+    {// Só desliga o manager
+        if (TooltipManager.instance != null)
+            TooltipManager.instance.Hide();
     }
 }

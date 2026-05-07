@@ -1,54 +1,84 @@
-using Unity.VisualScripting;
 using UnityEngine;
 
-public class CharacterStats : MonoBehaviour
+public interface ICharacterStats
+{
+    int CurrentAttack { get; }
+    int CurrentDefense { get; } // Nova integrante!
+    int CurrentHealth { get; }
+    int CurrentSpeed { get; }
+}
+
+public class CharacterStats : MonoBehaviour, ICharacterStats
 {
     [Header("Atributos Base (Sem Equipamento)")]
-    // [SerializeField] deixa aparecer na Unity, mas o 'private' impede outros scripts de bagunçarem
     [SerializeField] private int _baseAttack;
+    [SerializeField] private int _baseDefense; // Criada!
     [SerializeField] private int _baseHealth;
     [SerializeField] private int _baseSpeed;
 
-    // Getters públicos para qualquer um LER, mas o 'private set' garante que só ESTE script pode ALTERAR
+    // Getters públicos
     public int CurrentAttack { get; private set; }
+    public int CurrentDefense { get; private set; } // Criada!
     public int CurrentHealth { get; private set; }
     public int CurrentSpeed { get; private set; }
 
-    // Getters rápidos (usando Arrow Functions) caso outro script precise ler os status base originais
+    // Getters rápidos corrigidos
     public int BaseAttack => _baseAttack;
-    public int BaseDefense => _baseHealth;
+    public int BaseDefense => _baseDefense; // Corrigido de Health para Defense
+    public int BaseHealth => _baseHealth;
     public int BaseSpeed => _baseSpeed;
-
-    [SerializeField] private TMPro.TextMeshProUGUI[] statusText;
 
     [SerializeField] private PlayerStatsUI statsUI;
 
     private void Start()
     {
-        // Assim que o jogo começa ou o personagem nasce, 
-        // os atributos atuais são iguais aos base.
         UpdateStats();
     }
 
     public void UpdateStats()
     {
-        // RESET: Volta ao valor pelado
+        // RESET: Volta ao valor base
         CurrentAttack = _baseAttack;
+        CurrentDefense = _baseDefense; // Resetando Defesa
         CurrentHealth = _baseHealth;
         CurrentSpeed = _baseSpeed;
 
-        // SOMA: Se o gerente existir, vamos olhar o que ele tem
-        if (EquipmentManager.instance != null)
+        // SOMA: Bônus de equipamentos
+        if (gameObject.CompareTag("Player") && EquipmentManager.instance != null)
         {
             foreach (EquipmentData equip in EquipmentManager.instance.currentEquipment)
             {
                 if (equip != null)
                 {
                     CurrentAttack += equip.bonusAttack;
+                    CurrentDefense += equip.bonusDefense; // Soma bônus de Defesa
                     CurrentHealth += equip.bonusHealth;
                     CurrentSpeed += equip.bonusSpeed;
                 }
             }
+
+            // --- Lógica de Bônus de Conjunto ---
+            int pecasFuria = 0;
+            int pecasDefesaEterna = 0;
+
+            // Só contamos se for o Player, para economizar processamento nos inimigos
+            if (gameObject.CompareTag("Player") && EquipmentManager.instance != null)
+            {
+                foreach (EquipmentData equip in EquipmentManager.instance.currentEquipment)
+                {
+                    if (equip == null) continue;
+
+                    if (equip.equipSet == EquipamentSet.FuriaSanguinea) pecasFuria++;
+                    if (equip.equipSet == EquipamentSet.DefesaEterna) pecasDefesaEterna++;
+                }
+            }
+
+            // Aplicando os bônus de 4 peças (Ex: +20% no atributo final)
+            if (pecasFuria >= 4)
+                CurrentAttack = Mathf.RoundToInt(CurrentAttack * 1.20f);
+
+            if (pecasDefesaEterna >= 4)
+                CurrentDefense = Mathf.RoundToInt(CurrentDefense * 1.20f);
         }
 
         // UI: Avisa a tela
@@ -56,5 +86,13 @@ public class CharacterStats : MonoBehaviour
         {
             statsUI.AtualizarTextosNaTela();
         }
+    }
+
+    // MÉTODO EXTRA PARA O DEBUFF:
+    // Permite que o BattleManager mude a defesa durante a luta sem mudar o equipamento
+    public void AlterarDefesaTemporariamente(int quantidade)
+    {
+        CurrentDefense += quantidade;
+        if (CurrentDefense < 0) CurrentDefense = 0; // Defesa nunca é negativa
     }
 }

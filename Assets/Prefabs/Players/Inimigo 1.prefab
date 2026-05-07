@@ -184,9 +184,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _baseAttack: 300
+  _baseDefense: 100
   _baseHealth: 500
   _baseSpeed: 4
-  statusText: []
   statsUI: {fileID: 0}
 --- !u!1001 &8216536268882728562
 PrefabInstance:

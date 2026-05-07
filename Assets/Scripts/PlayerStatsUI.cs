@@ -10,6 +10,7 @@ public class PlayerStatsUI : MonoBehaviour
     [Header("Configurações de Texto")] // Só para organizar no Inspector
     [SerializeField] private TextMeshProUGUI attackText;
     [SerializeField] private TextMeshProUGUI healthText;
+    [SerializeField] private TextMeshProUGUI defenseText;
     [SerializeField] private TextMeshProUGUI speedText;
 
     public void AtualizarTextosNaTela()
@@ -19,5 +20,6 @@ public class PlayerStatsUI : MonoBehaviour
         attackText.text = playerStats.CurrentAttack.ToString();
         healthText.text = playerStats.CurrentHealth.ToString();
         speedText.text = playerStats.CurrentSpeed.ToString();
+        defenseText.text = playerStats.CurrentDefense.ToString();
     }
 }

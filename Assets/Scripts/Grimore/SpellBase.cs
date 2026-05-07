@@ -17,6 +17,9 @@ public class SpellBase : ScriptableObject
     [SerializeField] private float multiplicadorDano;
     [SerializeField] private bool isHealing;
 
+    [SerializeField] private bool isStatModifier; // Define se a magia altera atributos
+    [SerializeField] private int defenseChange;   // Valor positivo para Buff, negativo para Debuff
+
     [Header("Visuals & Logic")]
     [SerializeField] private GameObject vfxPrefab;
     [SerializeField] private string targetTag = "Enemy";
@@ -35,6 +38,9 @@ public class SpellBase : ScriptableObject
     public int Level => level;
     public bool IsHealing => isHealing;
     public float MultiplicadorDano => multiplicadorDano;
+
+    public bool IsStatModifier => isStatModifier; // Getter para saber se é um modificador de statusq
+    public int DefenseChange => defenseChange;   // Getter para o valor de alteração de defesa
 
     public float GetCurrentPower() => multiplicadorDano; // Ajustei o scaling ;)
 }
