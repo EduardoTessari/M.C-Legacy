@@ -72,6 +72,7 @@
     <Compile Include="Assets\Scripts\ItemTooltip.cs" />
     <Compile Include="Assets\Scripts\CollectItem.cs" />
     <Compile Include="Assets\Scripts\CharacterStats.cs" />
+    <Compile Include="Assets\Scripts\ResourceMine.cs" />
     <Compile Include="Assets\Scripts\Grimore\GrimoireSlot.cs" />
     <Compile Include="Assets\Scripts\Battle\StatusBatalha.cs" />
     <Compile Include="Assets\Scripts\Battle\TextoDano.cs" />
@@ -82,15 +83,20 @@
     <Compile Include="Assets\Scripts\Materials\Equipaments\EquipamentData.cs" />
     <Compile Include="Assets\Scripts\Battle\PlayersSlotManager.cs" />
     <Compile Include="Assets\Scripts\Inventory\InventorySlotUI.cs" />
+    <Compile Include="Assets\Scripts\GameLogManager.cs" />
     <Compile Include="Assets\Scripts\Battle\BattleManager.cs" />
     <Compile Include="Assets\Scripts\InventoryManager.cs" />
     <Compile Include="Assets\Scripts\Grimore\GrimoireUIController.cs" />
     <Compile Include="Assets\Scripts\CraftSlotUI.cs" />
+    <Compile Include="Assets\Scripts\MineNode.cs" />
     <Compile Include="Assets\Scripts\OpenClosePanel.cs" />
+    <Compile Include="Assets\Scripts\PanelFocus.cs" />
+    <Compile Include="Assets\Scripts\DragWindow.cs" />
     <Compile Include="Assets\Scripts\Materials\Itens\ItemData.cs" />
     <Compile Include="Assets\Scripts\Battle\BattleSpellSlot.cs" />
     <Compile Include="Assets\Scripts\Managgers\TooltipTrigger.cs" />
     <Compile Include="Assets\Scripts\CraftingManager.cs" />
+    <Compile Include="Assets\Scripts\ResourcesManager.cs" />
     <Compile Include="Assets\Scripts\EquipmentManager.cs" />
   </ItemGroup>
   <ItemGroup>
