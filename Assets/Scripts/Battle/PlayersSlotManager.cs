@@ -4,33 +4,49 @@ using System.Collections.Generic;
 public class PlayersSlotManager : MonoBehaviour
 {
     [SerializeField] private Transform[] _playerSlots, _enemySlots;
-    [SerializeField] private GameObject _playerPrefab, _enemyPrefab;
 
-    // Referência para o BattleManager para podermos preencher a lista de combatentes
+    // Removi a variável do _playerPrefab, não precisamos mais clonar ele!
+
     [SerializeField] private BattleManager _battleManager;
 
-    public void SpawnCombatentes(int qtdPlayers, int qtdInimigos)
+    public void SpawnCombatentes(int qtdPlayers, LevelData levelInfo)
     {
-        // Limpa a lista antes de começar, para garantir que não tem lixo de batalhas passadas
         _battleManager.combatentes.Clear();
 
-        // Spawn dos Players
-        for (int i = 0; i < qtdPlayers; i++)
+        // 1. Move o Player REAL (que já tem seus status reais) para o slot de batalha
+        // Pega todos os players da cena (geralmente só você) e bota na posição correta
+        GameObject[] playersNaCena = GameObject.FindGameObjectsWithTag("Player");
+        for (int i = 0; i < playersNaCena.Length; i++)
         {
             if (i < _playerSlots.Length)
             {
-                GameObject p = Instantiate(_playerPrefab, _playerSlots[i].position, Quaternion.identity);
-                _battleManager.combatentes.Add(p);
+                playersNaCena[i].transform.position = _playerSlots[i].position;
             }
         }
 
-        // Spawn dos Inimigos
-        for (int i = 0; i < qtdInimigos; i++)
+        // 2. Spawn dos Inimigos baseados na Lista do LevelData!
+        int slotIndex = 0;
+
+        foreach (EnemySpawnInfo enemyGroup in levelInfo.enemiesToSpawn)
         {
-            if (i < _enemySlots.Length)
+            for (int i = 0; i < enemyGroup.count; i++)
             {
-                GameObject e = Instantiate(_enemyPrefab, _enemySlots[i].position, Quaternion.identity);
-                _battleManager.combatentes.Add(e);
+                if (slotIndex < _enemySlots.Length)
+                {
+                    GameObject e = Instantiate(enemyGroup.enemyPrefab, _enemySlots[slotIndex].position, Quaternion.identity);
+
+                    CharacterStats enemyStats = e.GetComponent<CharacterStats>();
+                    if (enemyStats != null)
+                    {
+                        enemyStats.ApplyDifficultyMultiplier(levelInfo.difficultyMultiplier);
+                    }
+
+                    slotIndex++;
+                }
+                else
+                {
+                    Debug.LogWarning("Tem mais inimigos do que slots no mapa!");
+                }
             }
         }
     }

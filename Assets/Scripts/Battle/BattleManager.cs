@@ -24,7 +24,9 @@ public class BattleManager : MonoBehaviour
     public Transform painelTimeline;
     public GameObject templateTurnoPrefab;
     public GameObject mainCanvas, battleCanvas, worldEnvironment, combatEnvironment;
-    public BattleStarter npcThatCalled; // Guarda a referência do NPC que iniciou a batalha para poder resetá-lo depois
+
+    // NOVO: Guarda as informações do nível atual para saber o que dropar no final!
+    private LevelData currentLevelData;
 
     [Header("Dynamic UI")]
     [SerializeField] private GameObject _battleSlotPrefab;
@@ -34,7 +36,6 @@ public class BattleManager : MonoBehaviour
     {
         if (instance == null) instance = this;
         else Destroy(gameObject);
-
     }
 
     void Update()
@@ -47,8 +48,11 @@ public class BattleManager : MonoBehaviour
 
     #region Turn Management (O Fluxo que não trava)
 
-    public void IniciarBatalha()
+    // AGORA RECEBE O NÍVEL COMO PARÂMETRO
+    public void IniciarBatalha(LevelData levelInfo)
     {
+        currentLevelData = levelInfo; // Salva o nível na memória do Manager
+
         combatentes.Clear();
         combatentes.AddRange(GameObject.FindGameObjectsWithTag("Player"));
         combatentes.AddRange(GameObject.FindGameObjectsWithTag("Enemy"));
@@ -101,7 +105,6 @@ public class BattleManager : MonoBehaviour
         }
     }
 
-    // AGORA É PUBLIC E COM O NOME QUE O STATUS_BATALHA QUER!
     public bool VerificarFimDeBatalha()
     {
         int p = 0; int e = 0;
@@ -112,11 +115,18 @@ public class BattleManager : MonoBehaviour
             if (go.CompareTag("Enemy")) e++;
         }
 
-        if (e <= 0 || p <= 0)
+        // Se acabaram os inimigos, Vitória! Se acabou o player, Derrota.
+        if (e <= 0)
         {
-            EndBattle();
+            EndBattle(true); // Venceu!
             return true;
         }
+        else if (p <= 0)
+        {
+            EndBattle(false); // Perdeu!
+            return true;
+        }
+
         return false;
     }
 
@@ -138,25 +148,18 @@ public class BattleManager : MonoBehaviour
         Vector2 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         RaycastHit2D hit = Physics2D.Raycast(mousePos, Vector2.zero);
 
-        // 1. Verificamos se clicamos em alguém válido
         if (hit.collider != null && hit.collider.CompareTag(selectedSpell.TargetTag))
         {
             List<GameObject> alvosFinais = new List<GameObject>();
-
-            // 2. O alvo clicado SEMPRE entra primeiro
             GameObject alvoPrincipal = hit.collider.gameObject;
             alvosFinais.Add(alvoPrincipal);
 
-            // 3. Se a magia for de área (mais de 1 alvo), buscamos os extras
             if (selectedSpell.MaxTargets > 1)
             {
-                // Em vez de buscar na cena toda, olhamos só para quem está na batalha!
                 foreach (GameObject combatente in BattleManager.instance.combatentes)
                 {
-                    // Para o loop se a lista encher
                     if (alvosFinais.Count >= selectedSpell.MaxTargets) break;
 
-                    // Só adiciona se: não for nulo, tiver a tag certa E não for o alvo principal
                     if (combatente != null &&
                         combatente.CompareTag(selectedSpell.TargetTag) &&
                         combatente != alvoPrincipal)
@@ -166,19 +169,17 @@ public class BattleManager : MonoBehaviour
                 }
             }
 
-            // 4. Única chamada de execução para todos os casos!
             StartCoroutine(ExecutarAçãoPlayer(alvosFinais));
         }
     }
 
-    // Agora a corrotina aceita uma LISTA de GameObjects
     IEnumerator ExecutarAçãoPlayer(List<GameObject> targets)
     {
         isBusy = true;
 
         foreach (GameObject t in targets)
         {
-            ApplyEffect(t); // Aplica dano/VFX em cada um da lista
+            ApplyEffect(t);
         }
 
         yield return new WaitForSeconds(1.2f);
@@ -200,22 +201,18 @@ public class BattleManager : MonoBehaviour
 
             if (selectedSpell != null)
             {
-                // 1. COMEÇA COM A TAG QUE ESTÁ NO ASSET
                 string tagParaBuscar = selectedSpell.TargetTag;
 
-                // 2. LÓGICA DE ESPELHAMENTO: "O inimigo do meu inimigo é meu alvo"
-                // Se o conjurador é um Inimigo, a gente inverte as intenções:
                 if (turnoAtualPersonagem.CompareTag("Enemy"))
                 {
                     if (selectedSpell.TargetTag == "Enemy")
-                        tagParaBuscar = "Player"; // Ataques agora focam em você
+                        tagParaBuscar = "Player";
                     else if (selectedSpell.TargetTag == "Player")
-                        tagParaBuscar = "Enemy"; // Curas agora focam nele mesmo
+                        tagParaBuscar = "Enemy";
                 }
 
                 List<GameObject> alvosFinais = new List<GameObject>();
 
-                // 3. BUSCA COM A TAG "TRADUZIDA"
                 foreach (GameObject combatente in combatentes)
                 {
                     if (alvosFinais.Count >= selectedSpell.MaxTargets) break;
@@ -230,8 +227,6 @@ public class BattleManager : MonoBehaviour
             }
             else
             {
-                // Opcional: Aqui é onde o Inimigo já fez o "Ataque Básico" lá na EnemyAI
-                // Você pode colocar um pequeno delay aqui para o jogador ver o dano subir
                 yield return new WaitForSeconds(0.5f);
             }
         }
@@ -253,43 +248,33 @@ public class BattleManager : MonoBehaviour
         {
             float resultadoFinal = 0;
 
-            // CASO A: A magia é de alteração de Atributo (Pique Pokémon)
             if (selectedSpell.IsStatModifier)
             {
                 if (selectedSpell.DefenseChange != 0)
                 {
                     statsAlvo.AlterarDefesaTemporariamente(selectedSpell.DefenseChange);
-                    // Você pode até colocar um Log específico:
                     string acao = selectedSpell.DefenseChange > 0 ? "subiu" : "caiu";
                     Debug.Log($"{target.name} teve sua defesa reduzida/aumentada!");
                 }
-                // Aqui você pode adicionar outros modificadores no futuro (Atk, Speed...)
                 if (selectedSpell.MultiplicadorDano <= 0) return;
             }
 
-            // CASO B: A magia é de Cura ou Dano
-
             if (selectedSpell.IsHealing)
             {
-                // CURA: Ignora defesa. É apenas seu Ataque (ou Int) * Multiplicador
                 resultadoFinal = statsConjurador.CurrentAttack * selectedSpell.MultiplicadorDano;
             }
             else
             {
-                // DANO: (Ataque - Defesa) * Multiplicador
                 int defesaAlvo = (statsAlvo != null) ? statsAlvo.CurrentDefense : 0;
                 float poderPenetracao = statsConjurador.CurrentAttack - defesaAlvo;
 
-                // Trava de dano mínimo antes do multiplicador (Pelo menos 1 de "base")
                 if (poderPenetracao < 1) poderPenetracao = 1;
 
                 resultadoFinal = poderPenetracao * selectedSpell.MultiplicadorDano;
             }
 
-            // Arredonda e garante que o dano final nunca seja menor que 1 (Trava Global)
             int valorFinal = Mathf.Max(1, Mathf.RoundToInt(resultadoFinal));
 
-            // 3. Aplica o resultado
             if (selectedSpell.IsHealing)
                 statusBatalhaAlvo.ReceberCura(valorFinal);
             else
@@ -315,10 +300,8 @@ public class BattleManager : MonoBehaviour
 
     public void AtualizarTimelineVisual()
     {
-        // 1. Limpa a UI lateral (Timeline)
         foreach (Transform child in painelTimeline) Destroy(child.gameObject);
 
-        // 2. Pente fino nos combatentes no cenário
         foreach (GameObject go in combatentes)
         {
             if (go == null) continue;
@@ -326,14 +309,11 @@ public class BattleManager : MonoBehaviour
             StatusBatalha status = go.GetComponent<StatusBatalha>();
             if (status != null)
             {
-                // Se o objeto da lista é o personagem que vai agir AGORA -> Amarelo
-                // Se NÃO é ele -> Volta para a cor original (Branco/Normal)
                 bool ehOTurnoDele = (go == turnoAtualPersonagem);
                 status.DefinirDestaque(ehOTurnoDele, Color.yellow);
             }
         }
 
-        // 3. Reconstrói a Timeline Visual (os nomes na direita)
         for (int i = 0; i < combatentes.Count; i++)
         {
             int index = (turnoAtual + i) % combatentes.Count;
@@ -343,13 +323,12 @@ public class BattleManager : MonoBehaviour
             var text = item.GetComponent<TextMeshProUGUI>();
             text.text = c.name;
 
-            // Na UI, quem está no topo (i=0) fica amarelo
             if (i == 0) text.color = Color.yellow;
             else text.color = c.CompareTag("Player") ? Color.cyan : Color.red;
         }
     }
 
-    public void EndBattle()
+    public void EndBattle(bool vitoria)
     {
         StopAllCoroutines();
 
@@ -377,28 +356,51 @@ public class BattleManager : MonoBehaviour
             {
                 playerNoMundo.SetActive(true);
 
-                // 1. Pegamos os dois componentes do Player
                 CharacterStats stats = playerNoMundo.GetComponent<CharacterStats>();
                 StatusBatalha status = playerNoMundo.GetComponent<StatusBatalha>();
 
                 if (stats != null && status != null)
                 {
-                    // 2. Atualiza os limites (HP Máximo baseado nos itens)
                     stats.UpdateStats();
 
-                    // 3. CURA REAL: Resetamos o HP atual para o máximo
                     status.hpMaximo = stats.CurrentHealth;
                     status.hpAtual = status.hpMaximo;
 
-                    // 4. Agora sim, chamamos a atualização da barra do OBJETO 'status'
-                    status.DefinirDestaque(false, Color.white); // Limpa brilho de turno se houver
+                    status.DefinirDestaque(false, Color.white);
 
-                    // 5. FORÇA A BARRA DE VIDA A SE RECALCULAR
                     status.AtualizarBarraUI();
                 }
             }
 
-            if (npcThatCalled != null) npcThatCalled.ResetNPC();
+            // --- SISTEMA DE DROPS AQUI ---
+            if (vitoria && currentLevelData != null)
+            {
+                Debug.Log("<color=green>VITÓRIA! Calculando Drops...</color>");
+
+                foreach (ItemData drop in currentLevelData.possibleDrops)
+                {
+                    // 50% de chance de dropar cada item da lista do nível. Pode ajustar esse valor!
+                    if (Random.Range(0, 100) < 50)
+                    {
+                        // Avisa o nosso chat visual
+                        if (GameLogManager.Instance != null)
+                        {
+                            string timeString = System.DateTime.Now.ToString("HH:mm:ss");
+                            GameLogManager.Instance.AddLogMessage($"[{timeString}]: <color=orange>Drop +1 {drop.ItemName}</color>");
+                        }
+
+                        // Adiciona no inventário de verdade! 
+                        if (InventoryManager.instance != null)
+                        {
+                            InventoryManager.instance.AddItem(drop,1);
+                        }
+                    }
+                }
+            }
+            else if (!vitoria)
+            {
+                Debug.Log("<color=red>DERROTA! Você foi amassado e voltou pra cidade sem nada.</color>");
+            }
         }
     }
 

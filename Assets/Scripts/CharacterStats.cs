@@ -95,4 +95,19 @@ public class CharacterStats : MonoBehaviour, ICharacterStats
         CurrentDefense += quantidade;
         if (CurrentDefense < 0) CurrentDefense = 0; // Defesa nunca é negativa
     }
+
+    public void ApplyDifficultyMultiplier(float multiplier)
+    {
+        // Se o multiplicador for 1, não muda nada.
+        // Se for 1.5, ele ganha +50% de status!
+        _baseHealth = (int)(BaseHealth * multiplier);
+        CurrentHealth = _baseHealth;
+
+        _baseAttack = (int)(BaseAttack * multiplier);
+        _baseDefense = (int)(BaseDefense * multiplier);
+        _baseSpeed = (int)(_baseSpeed * multiplier); // Velocidade escalando também!
+
+        // Atualiza todos os "Currents" de uma vez só!
+        UpdateStats();
+    }
 }

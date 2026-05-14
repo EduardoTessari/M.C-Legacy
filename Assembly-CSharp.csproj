@@ -89,10 +89,12 @@
     <Compile Include="Assets\Scripts\Grimore\GrimoireUIController.cs" />
     <Compile Include="Assets\Scripts\CraftSlotUI.cs" />
     <Compile Include="Assets\Scripts\MineNode.cs" />
+    <Compile Include="Assets\Scripts\LevelData.cs" />
     <Compile Include="Assets\Scripts\OpenClosePanel.cs" />
     <Compile Include="Assets\Scripts\PanelFocus.cs" />
     <Compile Include="Assets\Scripts\DragWindow.cs" />
     <Compile Include="Assets\Scripts\Materials\Itens\ItemData.cs" />
+    <Compile Include="Assets\Scripts\LevelSelectionManager.cs" />
     <Compile Include="Assets\Scripts\Battle\BattleSpellSlot.cs" />
     <Compile Include="Assets\Scripts\Managgers\TooltipTrigger.cs" />
     <Compile Include="Assets\Scripts\CraftingManager.cs" />

@@ -3,20 +3,28 @@
   "WorkspaceRootPath": "C:\\Users\\tessa\\Documents\\Unity\\M.C. Legacy\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{A4E1A1B5-6FA5-F2E9-9CA3-CA8A26238F9B}|Assembly-CSharp.csproj|c:\\users\\tessa\\documents\\unity\\m.c. legacy\\assets\\scripts\\gamelogmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A4E1A1B5-6FA5-F2E9-9CA3-CA8A26238F9B}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\gamelogmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{A4E1A1B5-6FA5-F2E9-9CA3-CA8A26238F9B}|Assembly-CSharp.csproj|c:\\users\\tessa\\documents\\unity\\m.c. legacy\\assets\\scripts\\battle\\playersslotmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A4E1A1B5-6FA5-F2E9-9CA3-CA8A26238F9B}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\battle\\playersslotmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A4E1A1B5-6FA5-F2E9-9CA3-CA8A26238F9B}|Assembly-CSharp.csproj|c:\\users\\tessa\\documents\\unity\\m.c. legacy\\assets\\scripts\\resourcemine.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A4E1A1B5-6FA5-F2E9-9CA3-CA8A26238F9B}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\resourcemine.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{A4E1A1B5-6FA5-F2E9-9CA3-CA8A26238F9B}|Assembly-CSharp.csproj|c:\\users\\tessa\\documents\\unity\\m.c. legacy\\assets\\scripts\\levelselectionmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A4E1A1B5-6FA5-F2E9-9CA3-CA8A26238F9B}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\levelselectionmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A4E1A1B5-6FA5-F2E9-9CA3-CA8A26238F9B}|Assembly-CSharp.csproj|C:\\Users\\tessa\\Documents\\Unity\\M.C. Legacy\\assets\\scripts\\resourcesmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A4E1A1B5-6FA5-F2E9-9CA3-CA8A26238F9B}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\resourcesmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{A4E1A1B5-6FA5-F2E9-9CA3-CA8A26238F9B}|Assembly-CSharp.csproj|c:\\users\\tessa\\documents\\unity\\m.c. legacy\\assets\\scripts\\battle\\battlestarter.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A4E1A1B5-6FA5-F2E9-9CA3-CA8A26238F9B}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\battle\\battlestarter.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A4E1A1B5-6FA5-F2E9-9CA3-CA8A26238F9B}|Assembly-CSharp.csproj|C:\\Users\\tessa\\Documents\\Unity\\M.C. Legacy\\assets\\scripts\\minenode.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A4E1A1B5-6FA5-F2E9-9CA3-CA8A26238F9B}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\minenode.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{A4E1A1B5-6FA5-F2E9-9CA3-CA8A26238F9B}|Assembly-CSharp.csproj|c:\\users\\tessa\\documents\\unity\\m.c. legacy\\assets\\scripts\\characterstats.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A4E1A1B5-6FA5-F2E9-9CA3-CA8A26238F9B}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\characterstats.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A4E1A1B5-6FA5-F2E9-9CA3-CA8A26238F9B}|Assembly-CSharp.csproj|c:\\users\\tessa\\documents\\unity\\m.c. legacy\\assets\\scripts\\leveldata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A4E1A1B5-6FA5-F2E9-9CA3-CA8A26238F9B}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\leveldata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A4E1A1B5-6FA5-F2E9-9CA3-CA8A26238F9B}|Assembly-CSharp.csproj|c:\\users\\tessa\\documents\\unity\\m.c. legacy\\assets\\scripts\\battle\\battlemanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A4E1A1B5-6FA5-F2E9-9CA3-CA8A26238F9B}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\battle\\battlemanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -26,57 +34,85 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 2,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "GameLogManager.cs",
-              "DocumentMoniker": "C:\\Users\\tessa\\Documents\\Unity\\M.C. Legacy\\Assets\\Scripts\\GameLogManager.cs",
-              "RelativeDocumentMoniker": "Assets\\Scripts\\GameLogManager.cs",
-              "ToolTip": "C:\\Users\\tessa\\Documents\\Unity\\M.C. Legacy\\Assets\\Scripts\\GameLogManager.cs",
-              "RelativeToolTip": "Assets\\Scripts\\GameLogManager.cs",
-              "ViewState": "AgIAAAoAAAAAAAAAAAAQwC8AAAABAAAAAAAAAA==",
+              "DocumentIndex": 5,
+              "Title": "BattleManager.cs",
+              "DocumentMoniker": "C:\\Users\\tessa\\Documents\\Unity\\M.C. Legacy\\Assets\\Scripts\\Battle\\BattleManager.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\Battle\\BattleManager.cs",
+              "ToolTip": "C:\\Users\\tessa\\Documents\\Unity\\M.C. Legacy\\Assets\\Scripts\\Battle\\BattleManager.cs",
+              "RelativeToolTip": "Assets\\Scripts\\Battle\\BattleManager.cs",
+              "ViewState": "AgIAACgAAAAAAAAAAAAywDQAAAAFAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-13T17:50:32.603Z",
+              "WhenOpened": "2026-05-14T18:17:09.189Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "ResourceMine.cs",
-              "DocumentMoniker": "C:\\Users\\tessa\\Documents\\Unity\\M.C. Legacy\\Assets\\Scripts\\ResourceMine.cs",
-              "RelativeDocumentMoniker": "Assets\\Scripts\\ResourceMine.cs",
-              "ToolTip": "C:\\Users\\tessa\\Documents\\Unity\\M.C. Legacy\\Assets\\Scripts\\ResourceMine.cs",
-              "RelativeToolTip": "Assets\\Scripts\\ResourceMine.cs",
-              "ViewState": "AgIAAD0AAAAAAAAAAAAkwGQAAAATAAAAAAAAAA==",
+              "DocumentIndex": 3,
+              "Title": "CharacterStats.cs",
+              "DocumentMoniker": "C:\\Users\\tessa\\Documents\\Unity\\M.C. Legacy\\Assets\\Scripts\\CharacterStats.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\CharacterStats.cs",
+              "ToolTip": "C:\\Users\\tessa\\Documents\\Unity\\M.C. Legacy\\Assets\\Scripts\\CharacterStats.cs",
+              "RelativeToolTip": "Assets\\Scripts\\CharacterStats.cs",
+              "ViewState": "AgIAAFkAAAAAAAAAAAAUwHAAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-12T22:42:33.285Z",
+              "WhenOpened": "2026-05-14T18:12:26.567Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "PlayersSlotManager.cs",
+              "DocumentMoniker": "C:\\Users\\tessa\\Documents\\Unity\\M.C. Legacy\\Assets\\Scripts\\Battle\\PlayersSlotManager.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\Battle\\PlayersSlotManager.cs",
+              "ToolTip": "C:\\Users\\tessa\\Documents\\Unity\\M.C. Legacy\\Assets\\Scripts\\Battle\\PlayersSlotManager.cs",
+              "RelativeToolTip": "Assets\\Scripts\\Battle\\PlayersSlotManager.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABMAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-14T18:10:17.303Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 2,
-              "Title": "ResourcesManager.cs",
-              "DocumentMoniker": "C:\\Users\\tessa\\Documents\\Unity\\M.C. Legacy\\Assets\\Scripts\\ResourcesManager.cs",
-              "RelativeDocumentMoniker": "Assets\\Scripts\\ResourcesManager.cs",
-              "ToolTip": "C:\\Users\\tessa\\Documents\\Unity\\M.C. Legacy\\Assets\\Scripts\\ResourcesManager.cs",
-              "RelativeToolTip": "Assets\\Scripts\\ResourcesManager.cs",
-              "ViewState": "AgIAAA8AAAAAAAAAAAAYwC4AAAABAAAAAAAAAA==",
+              "Title": "BattleStarter.cs",
+              "DocumentMoniker": "C:\\Users\\tessa\\Documents\\Unity\\M.C. Legacy\\Assets\\Scripts\\Battle\\BattleStarter.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\Battle\\BattleStarter.cs",
+              "ToolTip": "C:\\Users\\tessa\\Documents\\Unity\\M.C. Legacy\\Assets\\Scripts\\Battle\\BattleStarter.cs",
+              "RelativeToolTip": "Assets\\Scripts\\Battle\\BattleStarter.cs",
+              "ViewState": "AgIAAAUAAAAAAAAAAAAAwBAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-12T22:41:54.37Z"
+              "WhenOpened": "2026-05-14T18:02:53.483Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "MineNode.cs",
-              "DocumentMoniker": "C:\\Users\\tessa\\Documents\\Unity\\M.C. Legacy\\Assets\\Scripts\\MineNode.cs",
-              "RelativeDocumentMoniker": "Assets\\Scripts\\MineNode.cs",
-              "ToolTip": "C:\\Users\\tessa\\Documents\\Unity\\M.C. Legacy\\Assets\\Scripts\\MineNode.cs",
-              "RelativeToolTip": "Assets\\Scripts\\MineNode.cs",
-              "ViewState": "AgIAAAMAAAAAAAAAAAAkwCQAAAAFAAAAAAAAAA==",
+              "DocumentIndex": 1,
+              "Title": "LevelSelectionManager.cs",
+              "DocumentMoniker": "C:\\Users\\tessa\\Documents\\Unity\\M.C. Legacy\\Assets\\Scripts\\LevelSelectionManager.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\LevelSelectionManager.cs",
+              "ToolTip": "C:\\Users\\tessa\\Documents\\Unity\\M.C. Legacy\\Assets\\Scripts\\LevelSelectionManager.cs",
+              "RelativeToolTip": "Assets\\Scripts\\LevelSelectionManager.cs",
+              "ViewState": "AgIAACYAAAAAAAAAAAAgwC8AAAAFAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-12T22:41:14.176Z"
+              "WhenOpened": "2026-05-14T17:33:12.473Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "LevelData.cs",
+              "DocumentMoniker": "C:\\Users\\tessa\\Documents\\Unity\\M.C. Legacy\\Assets\\Scripts\\LevelData.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\LevelData.cs",
+              "ToolTip": "C:\\Users\\tessa\\Documents\\Unity\\M.C. Legacy\\Assets\\Scripts\\LevelData.cs",
+              "RelativeToolTip": "Assets\\Scripts\\LevelData.cs",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAABgAAAAtAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-14T17:29:45.589Z",
+              "EditorCaption": ""
             }
           ]
         }

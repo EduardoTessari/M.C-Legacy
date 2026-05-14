@@ -3,8 +3,7 @@ using UnityEngine;
 public class BattleStarter : MonoBehaviour
 {
     [Header("Configuração da Luta")]
-    [SerializeField] private int _quantidadeDeInimigos = 1;
-    [SerializeField] private int _quantidadeDePlayers = 1; // Corrigido o "1;1"
+    [SerializeField] private int _quantidadeDePlayers = 1; 
 
     [SerializeField] private PlayersSlotManager _slotManager;
 
@@ -16,40 +15,29 @@ public class BattleStarter : MonoBehaviour
     public GameObject worldEnvironment;
     public GameObject combatEnvironment;
 
-    private void OnMouseDown()
+    // A função recebe a maleta (LevelData) do Botão da Interface
+    public void StartLevelBattle(LevelData levelData)
     {
-        Debug.Log("Iniciando batalha! Trocando UI e Ambientes.");
+        Debug.Log($"Iniciando batalha do {levelData.levelName}! Trocando UI e Ambientes.");
 
-        // 1. Primeiro a gente ativa o "palco" (Ambiente de Combate)
+        // 1. Ativa o Ambiente de Combate
         if (worldEnvironment != null) worldEnvironment.SetActive(false);
         if (combatEnvironment != null) combatEnvironment.SetActive(true);
 
-        // 2. Depois a gente troca a "roupa" (UI)
+        // 2. Troca a UI
         if (mainCanvas != null) mainCanvas.SetActive(false);
         if (battleCanvas != null) battleCanvas.SetActive(true);
 
-        // 3. Agora que o palco existe, a gente manda os atores nascerem!
+        // 3. Spawna a galera passando a maleta pro SlotManager ler os inimigos
         if (_slotManager != null)
         {
-            _slotManager.SpawnCombatentes(_quantidadeDePlayers, _quantidadeDeInimigos);
+            _slotManager.SpawnCombatentes(_quantidadeDePlayers, levelData);
         }
 
-        // 4. Por fim, avisa o Maestro (Manager) quem chamou e pede pra começar
+        // 4. Avisa o Manager pra começar a luta e entrega a maleta pra ele saber os Drops!
         if (BattleManager.instance != null)
         {
-            BattleManager.instance.npcThatCalled = this;
-            BattleManager.instance.IniciarBatalha();
-
-            // Desativa o clique pra não iniciar a mesma batalha duas vezes
-            GetComponent<Collider2D>().enabled = false;
-            this.enabled = false;
+            BattleManager.instance.IniciarBatalha(levelData);
         }
-    }
-
-    public void ResetNPC()
-    {
-        this.enabled = true;
-        if (GetComponent<Collider2D>() != null) GetComponent<Collider2D>().enabled = true;
-        Debug.Log("<color=green>NPC resetado e pronto para outra!</color>");
     }
 }
